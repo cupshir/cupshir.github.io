@@ -1,0 +1,10 @@
+.button-look-up {
+    padding: 6px 12px;
+    background-color: lightgray;
+    border: 0;
+    color: #000;
+}
+
+.button-look-up:hover {
+    background-color: lightskyblue;
+}
