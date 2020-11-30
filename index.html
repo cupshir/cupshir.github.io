@@ -6,10 +6,31 @@
         <link rel="stylesheet" href="/css/index.css">
     </head>
     <body>
-        <h1>Zip Code Info Tool</h1>
-        <p>Look up zip code information</p>
+        <h1>
+            Zip Code<br />
+            Look Up Tool
+        </h1> 
+        <p>Enter a zip code to look up its information</p>
         <br />
-        <input id="zipCode" type="text" />
-        <div class="button-look-up">Look Up</div>
+        <input id="txtZipCode" type="text" />
+        <button type="button" disabled id="btnLookUp" class="button-look-up">Look Up</button>
+        <div id="error" class="error" style="display: none;"></div>
+        <div class="results" style="display: none;">
+            <div class="results-type">
+                <h2 class="selected">Pretty</h2>
+                <h2>Raw</h2>
+            </div>
+            <br />
+            <pre id="rawResults" class="result" style="display: none;"></pre>
+            <div id="prettyResults" class="result">
+                
+                <h3>Details for <span class="zip-code">000</span></h3>
+                <p><span class="zip-code"></span> is located in <span class="city"></span>, <span class="state"></span> at</p>
+                <p>
+                    Latitude: <span class="latitude"></span><br />
+                    Longitude: <span class="longitude"></span>
+                </p>
+            </div>
+        </div>
     </body>
 </html>
