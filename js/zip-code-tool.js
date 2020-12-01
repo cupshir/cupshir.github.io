@@ -1,11 +1,10 @@
 $(document).ready(function() {
     $('#txtZipCode').on('change keypress keyup', function() {
         if (this.value) {
-            $('#btnLookUp').prop('disabled',false);
+            $('#btnLookUp').prop('disabled', false);
         } else {
             $('#btnLookUp').prop('disabled', true);
         }
-
     });
 
     $('#btnLookUp').on('click', function() {
@@ -26,17 +25,12 @@ $(document).ready(function() {
             $('.latitude').text(data["places"][0]["latitude"]);
             $('.longitude').text(data["places"][0]["longitude"]);
 
-            $.get('https://www.emojidex.com/api/v1/search/emoji -d code_cont=az', function(emojiData) {
-                console.log(emojiData);
-            })
-
             $('.results').show();
         })
         .fail(function() {
             $('#txtZipCode').addClass('has-error');
             $('#error').html('Invalid zip code provided');
             $('#error').show();
-
             $('.results').hide();
         });
     });
@@ -46,9 +40,8 @@ $(document).ready(function() {
         $('.results-type h2').removeClass('selected');
         $('.result').hide();
 
-        // select item clicked
+        // select item clicked and unhide respective result
         $(this).addClass('selected');
-        // unhide results for type clicked
         $('#' + $(this).text().toLowerCase() + 'Results').show();
     });
 });
