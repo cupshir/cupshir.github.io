@@ -1,8 +1,10 @@
-const cards = document.querySelectorAll('.memory-card');
-
-let hasFlippedCard = false;
-let lockBoard = false;
-let firstCard, secondCard;
+function buildCard(cardType, cardImageName, cardImageText) {
+    return
+        `<div class="memory-card" data-card-type="${cardType}">
+            <img class="front-face" src="../img/memory/${cardImageName}.png" alt="${cardImageText}">
+            <img class="back-face" src="../img/memory/snowman.svg" alt="Memory Card">    
+        </div>`
+}
 
 function flipCard() {
     if (lockBoard) return;
@@ -27,6 +29,8 @@ function checkForMatch() {
 }
 
 function disableCards() {
+    matchedSets++;
+
     firstCard.removeEventListener('click', flipCard);
     secondCard.removeEventListener('click', flipCard);
 
@@ -47,13 +51,9 @@ function unflipCards() {
 function resetBoard() {
     [hasFlippedCard, lockBoard] = [false, false];
     [firstCard, secondCard] = [null, null];
+
+    if (matchedSets === 6) {
+        $('.game').hide();
+        $('.winner').show();
+    }
 }
-
-(function shuffle() {
-    cards.forEach(card => {
-        let randomPos = Math.floor(Math.random() * 12);
-        card.style.order = randomPos;
-    });
-})();
-
-cards.forEach(card => card.addEventListener('click', flipCard));
