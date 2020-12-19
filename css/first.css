@@ -105,3 +105,7 @@ body {
 .front-face {
     transform: rotateY(180deg);
 }
+
+.winner img {
+    width: 150px;
+}

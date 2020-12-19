@@ -17,15 +17,14 @@ cards.forEach(card => card.addEventListener('click', flipCard));
 $(document).ready(function() {
     $('.btn-play').on('click', function() {
         $('.intro').hide();
-        //$('.fake-game').show();
-        $('.winner').show();
+        $('.fake-game').show();
     });
 
     $('.fake-game img').on('click', function() {
         $('.fake-game img').hide();
         $('.fake-game-content').show();
 
-        var timeLeft = 10;
+        var timeLeft = 5;
         var countdown = setInterval(function() {
             if (timeLeft === 0) {
                 clearInterval(countdown);
