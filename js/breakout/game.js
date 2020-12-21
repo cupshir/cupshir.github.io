@@ -10,6 +10,8 @@ function resetGame() {
     currentScore = 0;
     currentLives = STARTING_LIVES;
     currentLevel = STARTING_LEVEL;
+    failedLevel = false;
+    pointModifier = STARTING_POINT_MODIFIER;
 
     // setup paddle
     paddleWidth = PADDLE_WIDTH;
@@ -112,10 +114,9 @@ function collisionDetection() {
         // collision with floor, reduce life
         currentLives--;
         if (currentLives) {
-            // reset board for next try
-            alert('Fail!');
-
-            resetLevel();           
+            failedLevel = true;
+            
+            return;
         }
         else if (currentLives === 0) {
             // game over
@@ -135,7 +136,7 @@ function collisionDetection() {
                     moveUnitY = -moveUnitY;
                     brick.status = 0;
                     brickCount--;
-                    currentScore++;
+                    currentScore = currentScore + pointModifier;
                 }            
             }
         }        

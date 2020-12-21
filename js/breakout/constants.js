@@ -1,7 +1,8 @@
 'use strict';
 
-const STARTING_LIVES = 2;
+const STARTING_LIVES = 3;
 const STARTING_LEVEL = 1;
+const STARTING_POINT_MODIFIER = 1;
 
 const BALL_RADIUS = 10
 const MOVE_UNIT_X = -3;

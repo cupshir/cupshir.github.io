@@ -10,6 +10,29 @@ function drawLives(lives, canvasWidth) {
     ctx.fillText('Lives: ' + lives, canvasWidth - 65, 20);
 }
 
+function drawLevelCleared(canvasWidth, canvasHeight) {
+    ctx.font = '24px Arial';
+    ctx.fillStyle = '#0095DD';
+
+    let levelClearedText = 'LEVEL CLEARED',
+        levelClearedTextWidth = ctx.measureText(levelClearedText).width;
+
+    ctx.fillText(levelClearedText, (canvasWidth / 2) - (levelClearedTextWidth / 2), canvasHeight / 2);
+}
+
+function drawLevelFailed(canvasWidth, canvasHeight) {
+    ctx.font = '24px Arial';
+    ctx.fillStyle = '#0095DD';
+
+    let failedText = 'FAILED LEVEL',
+        failedTextWidth = ctx.measureText(failedText).width,
+        pointLossText = 'Minus 50 points',
+        pointLossTextWidth = ctx.measureText(pointLossText).width;
+
+    ctx.fillText(failedText, (canvasWidth / 2) - (failedTextWidth / 2), canvasHeight / 2 - 40);
+    ctx.fillText(pointLossText, (canvasWidth / 2) - (pointLossTextWidth / 2), canvasHeight /2);
+}
+
 function drawBall(x, y) {
     ctx.beginPath();
     ctx.arc(x, y, BALL_RADIUS, 0, Math.PI*2);
@@ -43,4 +66,15 @@ function drawBricks(bricks, columnCount, rowCount, width, height, widthPadding, 
         }        
     }
 }
+
+function drawSartingBoard() {
+
+    drawBricks(currentBricks, brickColumnCount, brickRowCount, brickWidth, brickHeight, brickPadding, brickPadding, brickOffsetLeft, brickOffsetTop);
+    drawBall(ballX, ballY);
+    drawPaddle(paddleX, canvas.height, paddleWidth, PADDLE_HEIGHT);
+    drawScore(currentScore);
+    drawLives(currentLives, canvas.width);
+}
+
+
 
