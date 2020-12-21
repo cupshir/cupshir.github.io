@@ -1,6 +1,67 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.content-card {
+    background: #FFFFFF;
+    box-shadow: 1px 1px 0 rgba(0, 0, 0, .3);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 4px;
+}
+
+.intro, .winner, .game-over {
+    width: 500px;
+    height: 350px;
+    margin: 200px auto;
+    background-color: mediumslateblue;
+}
+
+.content-card h1 {
+    padding: 0 50px;
+    text-align: center;
+}
+
+.content-card h3 {
+    text-align: center;
+    padding-top: 10px;
+}
+
+.content-card p {
+    padding: 0 25px;
+    text-align: center;
+}
+
+.winner p {
+    color: #FFFFFF;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-around;
+    width:100%;
+}
+
 .btn {
-    background-color: red;
-    color: white;
-    height: 50px;
+    background-color: mediumslateblue;
+    border: 1px solid mediumslateblue;
+    color: #FFFFFF;
     padding: 6px 12px;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background-color: #FFFFFF;
+    border-color: mediumslateblue;
+    color: mediumslateblue;
+    cursor: pointer;
+}
+
+.winner img {
+    width: 150px;
 }
