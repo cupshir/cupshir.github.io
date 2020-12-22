@@ -1,5 +1,6 @@
 'use strict';
 
+const STARTING_GAME_STATE = 'PLAY';
 const STARTING_LIVES = 3;
 const STARTING_LEVEL = 1;
 const STARTING_POINT_MODIFIER = 1;

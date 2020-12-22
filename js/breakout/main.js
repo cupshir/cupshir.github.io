@@ -4,6 +4,7 @@ var ctx = canvas.getContext('2d');
 var gameRequest;
 
 // create global variables
+var gameState;
 var currentScore;
 var currentLives;
 var currentLevel;
@@ -70,42 +71,56 @@ function play() {
     drawScore(currentScore);
     drawLives(currentLives, canvas.width);
 
-    collisionDetection();
-
-    if (failedLevel) {
-        cancelAnimationFrame(gameRequest);
-
-        levelFailed();
-        
-        return;
+    switch (gameState) {
+        case 'PLAY':
+            collisionDetection();
+            break;
+        case 'FAILED':
+            setTimeout(function() {
+                cancelAnimationFrame(gameRequest);
+                levelFailed();                
+            }, 1500);
+            return;
+        case 'CLEARED':
+            setTimeout(function() {
+                cancelAnimationFrame(gameRequest);
+                levelCleared();    
+            }, 1500);
+            return;
+        case 'WON':
+            setTimeout(function() {
+                $('.game-board').hide();
+                $('.winner').show();    
+            }, 1500);
+            return;
+        case 'OVER':
+            setTimeout(function() {
+                $('.game-board').hide();
+                $('.game-over').show();
+            }, 1500);
+            return;
+        default:
+            break;
     }
 
     // check for level cleared or game won
     if (brickCount === 0) {
-        cancelAnimationFrame(gameRequest);
-
-        // check if the person won
         if (currentLevel === 3) {
-            setTimeout(function() {
-                $('.game-board').hide();
-                $('.winner').show();    
-            }, 300);
+            gameState = 'WON';
         }
         else {
-            levelCleared();
+            gameState = 'CLEARED';
         }
+    }
 
-        return;
+    // check if level failed
+    if (failedLevel) {
+        gameState = 'FAILED';
     }
 
     // check for game over
     if (!currentLives) {
-        setTimeout(function() {
-            $('.game-board').hide();
-            $('.game-over').show();
-        }, 300);
-
-        return;
+        gameState = 'OVER';
     }
 
     // paddle movement
@@ -156,13 +171,13 @@ function levelCleared() {
     // reset ball location, speed, and paddle location
     resetLevel();
 
+    gameState = 'PLAY';
+
     // show next level button
     $('.next-level').show();
 }
 
 function levelFailed() {
-    failedLevel = false;
-
     cancelAnimationFrame(gameRequest);
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -174,6 +189,9 @@ function levelFailed() {
     drawLevelFailed(canvas.width, canvas.height);
 
     resetLevel();
+
+    failedLevel = false;
+    gameState = 'PLAY';
 
     $('.try-again').show();
 }
