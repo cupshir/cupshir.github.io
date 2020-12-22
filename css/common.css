@@ -2,6 +2,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: 'Press Start 2P', cursive;
 }
 
 .content-card {
@@ -34,6 +35,7 @@
 .content-card p {
     padding: 0 25px;
     text-align: center;
+    line-height: 24px;
 }
 
 .winner p {
