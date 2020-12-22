@@ -4,14 +4,34 @@ body {
     background: #8c3ad5;
 }
 
+.content-card h1, .content-card h3, .content-card p {
+    color: #FFFFFF;
+}
+
+.start-game {
+    background-color: #FFFFFF;
+    border-color: #FFFFFF;
+    color: mediumslateblue;
+}
+
+.start-game:hover {
+    background-color: mediumslateblue;
+    border-color: #FFFFFF;
+    color: #FFFFFF;
+}
+
 .fake-game {
     margin: 0 auto;
 }
 
 .fake-game-content {
-    width: 300px;
-    height: 300px;
+    width: 500px;
+    height: 350px;
     margin: 200px auto;
+}
+
+.fake-game-content h1, .fake-game-content p {
+    color: #000;
 }
 
 .game {
@@ -59,4 +79,19 @@ body {
 
 .front-face {
     transform: rotateY(180deg);
+}
+
+.winner img {
+    width: 300px;
+}
+
+.continue-quest {
+    background-color: #FFFFFF;
+    color: mediumslateblue;
+}
+
+.continue-quest:hover {
+    background-color: mediumslateblue;
+    border-color: #FFFFFF;
+    color: #FFFFFF
 }

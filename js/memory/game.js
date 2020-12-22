@@ -1,48 +1,51 @@
-function buildCard(cardType, cardImageName, cardImageText) {
-    return
-        `<div class="memory-card" data-card-type="${cardType}">
-            <img class="front-face" src="../img/memory/${cardImageName}.png" alt="${cardImageText}">
-            <img class="back-face" src="../img/memory/snowman.svg" alt="Memory Card">    
-        </div>`
+function buildCard(cardId, cardType, cardImageName, cardImageText) {
+    let newCard = `<div id="${cardId}" class="memory-card" data-card-type="${cardType}">
+        <img class="front-face" src="../img/memory/${cardImageName}" alt="${cardImageText}">
+        <img class="back-face" src="../img/memory/snowman.svg" alt="Memory Card">    
+    </div>`;
+
+    return newCard;
 }
 
-function flipCard() {
+function flipCard(card) {
     if (lockBoard) return;
-    if (this === firstCard) return;
+    if (card.attr('id') === firstCardId) return;
 
-    this.classList.add('flip');
+    card.addClass('flip');
 
     if (!hasFlippedCard) {
         hasFlippedCard = true;
-        firstCard = this;
+        firstCardId = card.attr('id');
+        firstCardDataValue = card.data('card-type');
         return;
     }
 
-    secondCard = this;
+    secondCardId = card.attr('id');
+    secondCardDataValue = card.data('card-type');
 
     checkForMatch();
 }
 
 function checkForMatch() {
-    let isMatch = firstCard.dataset.framework === secondCard.dataset.framework;
+    lockBoard = true;
+
+    let isMatch = firstCardDataValue === secondCardDataValue;
     isMatch ? disableCards() : unflipCards();
 }
 
 function disableCards() {
     matchedSets++;
 
-    firstCard.removeEventListener('click', flipCard);
-    secondCard.removeEventListener('click', flipCard);
+    $('#' + firstCardId).off();
+    $('#' + secondCardId).off();
 
     resetBoard();
 }
 
 function unflipCards() {
-    lockBoard = true;
-
     setTimeout(() => {
-        firstCard.classList.remove('flip');
-        secondCard.classList.remove('flip');
+        $('#' + firstCardId).removeClass('flip');
+        $('#' + secondCardId).removeClass('flip');
 
         resetBoard();
     }, 1500);
@@ -50,10 +53,14 @@ function unflipCards() {
 
 function resetBoard() {
     [hasFlippedCard, lockBoard] = [false, false];
-    [firstCard, secondCard] = [null, null];
+    [firstCardId, secondCardId] = [null, null];
+    [firstCardDataValue, secondCardDataValue] = [null, null];
 
-    if (matchedSets === 6) {
-        $('.game').hide();
-        $('.winner').show();
+    if (matchedSets === cards.length) {
+        setTimeout(() => {
+            $('.game').hide();
+            $('.winner').show();
+        }, 1500);
+
     }
 }
