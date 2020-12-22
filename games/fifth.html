@@ -5,90 +5,35 @@
         <title></title>
         <script src="/js/jquery-3.5.1.min.js"></script>
         <link rel="stylesheet" href="/css/common.css">
-        <link rel="stylesheet" href="/css/first.css">
+        <link rel="stylesheet" href="/css/second.css">
         
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Press+Start+2P" />
     </head>
     <body>
         <div class="content-card intro">
-            <h1>Hows your memory?</h1>
-            <p>This one shouldnt be too hard...</p>
-            <div class="buttons">
-                <div class="btn-play">Start Game</div>
-                <a href="/index" class="">Back</a>
+            <div>
+                <h1>Final Quest</h1>
+                <h3>Test of Memory</h3>
+                <h3>(Hard Mode)</h3>
             </div>
-        </div>
-
-        <div class="fake-game" style="display: none;">
-            <img src="/img/memory/cruel.png" alt="Easy Right?">
-
-            <div class="content-card fake-game-content" style="display: none;">
-                <h1>Too Hard?!?!</h1>
-                <p>Jeesh, Im not that cruel...</p>
-                <p>Real game starts in <span id="countDown">5</span></p>
-            </div>
+            <p>This final quest is no joke, the cards have been tripled!</p>
+            <p>Good Luck!</p>
+            <div class="btn start-game">Start Game</div>
         </div>
         
         <div class="game" style="display: none;">
             <div class="cards">
-                <div class="memory-card" data-framework="sailor-moon-1">
-                    <img class="front-face" src="../img/memory/sailor-moon-1.png" alt="Sailor Moon">
-                    <img class="back-face" src="../img/memory/snowman.svg" alt="Memory Card">    
-                </div>
-                <div class="memory-card" data-framework="sailor-moon-1">
-                    <img class="front-face" src="../img/memory/sailor-moon-1.png" alt="Sailor Moon">
-                    <img class="back-face" src="../img/memory/snowman.svg" alt="Memory Card">    
-                </div>
-                <div class="memory-card" data-framework="sailor-moon-2">
-                    <img class="front-face" src="../img/memory/sailor-moon-2.png" alt="Sailor Moon">
-                    <img class="back-face" src="../img/memory/snowman.svg" alt="Memory Card">
-                </div>
-                <div class="memory-card" data-framework="sailor-moon-2">
-                    <img class="front-face" src="../img/memory/sailor-moon-2.png" alt="Sailor Moon">
-                    <img class="back-face" src="../img/memory/snowman.svg" alt="Memory Card">
-                </div>
-                <div class="memory-card" data-framework="sailor-moon-3">
-                    <img class="front-face" src="../img/memory/sailor-moon-3.png" alt="Sailor Moon">
-                    <img class="back-face" src="../img/memory/snowman.svg" alt="Memory Card">
-                </div>
-                <div class="memory-card" data-framework="sailor-moon-3">
-                    <img class="front-face" src="../img/memory/sailor-moon-3.png" alt="Sailor Moon">
-                    <img class="back-face" src="../img/memory/snowman.svg" alt="Memory Card">
-                </div>
-                <div class="memory-card" data-framework="sailor-moon-4">
-                    <img class="front-face" src="../img/memory/sailor-moon-4.png" alt="Sailor Moon">
-                    <img class="back-face" src="../img/memory/snowman.svg" alt="Memory Card">  
-                </div>
-                <div class="memory-card" data-framework="sailor-moon-4">
-                    <img class="front-face" src="../img/memory/sailor-moon-4.png" alt="Sailor Moon">
-                    <img class="back-face" src="../img/memory/snowman.svg" alt="Memory Card">  
-                </div>
-                <div class="memory-card" data-framework="sailor-moon-5">
-                    <img class="front-face" src="../img/memory/sailor-moon-5.png" alt="Sailor Moon">
-                    <img class="back-face" src="../img/memory/snowman.svg" alt="Memory Card"> 
-                </div>
-                <div class="memory-card" data-framework="sailor-moon-5">
-                    <img class="front-face" src="../img/memory/sailor-moon-5.png" alt="Sailor Moon">
-                    <img class="back-face" src="../img/memory/snowman.svg" alt="Memory Card"> 
-                </div>
-                <div class="memory-card" data-framework="sailor-moon-6">
-                    <img class="front-face" src="../img/memory/sailor-moon-6.png" alt="Sailor Moon">
-                    <img class="back-face" src="../img/memory/snowman.svg" alt="Memory Card">   
-                </div>
-                <div class="memory-card" data-framework="sailor-moon-6">
-                    <img class="front-face" src="../img/memory/sailor-moon-6.png" alt="Sailor Moon">
-                    <img class="back-face" src="../img/memory/snowman.svg" alt="Memory Card">   
-                </div>
             </div>
         </div>
 
-        <div class="winner content-card" style="display: none;">
+        <div class="content-card winner" style="display: none;">
             <img src="/img/winner.png" alt="Winner">
-            <p>Way to go, your present can be found LOCATION NEEDED</p>
-            <a href="/games/second.html">Start your next challange</a>
+            <p>Nicely done, your present can be found in the cabinet above the washing machine.</p>
+            <a href="/games/third.html" class="btn continue-quest">Continue Your Quest</a>
         </div>
 
-        <script src="../js/memory/game.js"></script>
-        <script src="../js/memory/main.js"></script>
+        <script src="../js/memory-hard/constants.js"></script>
+        <script src="../js/memory-hard/game.js"></script>
+        <script src="../js/memory-hard/main.js"></script>
     </body>
 </html>

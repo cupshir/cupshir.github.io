@@ -10,19 +10,19 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Press+Start+2P" />
     </head>
     <body>
-
         <div class="content-card intro">
             <div>
-                <h1>Quest 1</h1>
-                <h3>(Test of Dexterity)</h3>    
+                <h1>Quest 4</h1>
+                <h3>Test of Dexterity</h3>
+                <h3>(Hard Mode)</h3>    
             </div>
-            <p>Prove that you have superior hand eye coordination by scoring 1600+ points in a game of Breakout!</p>
+            <p>This step of your journey takes you back to Breakout, though it will not be so easy this time.</p>
             <p>Good Luck!</p>
             <div class="btn start-game">Start Game</div>
         </div>
 
         <div class="game-board" style="display: none;">
-            <h2>Score 1600+</h2>
+            <h2>To complete this quest, score 3000 points.</h2>
             <canvas id="gameCanvas" width="480" height="320"></canvas>
             <div class="btn-container">
                 <div class="btn try-again" style="display: none;">Try Again</div>
@@ -30,20 +30,20 @@
             </div>
         </div>
 
-        <div class="winner content-card" style="display: none;">
+        <div class="content-card winner" style="display: none;">
             <img src="/img/you-win.png" alt="Winner">
-            <p>Wohoo! Your first present can be found LOCATION NEEDED</p>
-            <a href="/games/second.html" class="btn continue-quest">Continue your quest</a>
+            <p>Nice work! Your present can be found in the Star Wars popcorn tin.</p>
+            <a href="/games/fifth.html" class="btn continue-quest">Proceed to final quest</a>
         </div>
 
-        <div class="game-over" style="display: none;">
-            <p>No gifts for your...</p>
+        <div class="content-card game-over" style="display: none;">
+            <p>No gifts for you...</p>
             <div class="btn start-game">Restart Game</div>
         </div>
 
-        <script src="../js/breakout/constants.js"></script>
-        <script src="../js/breakout/ui.js"></script>
-        <script src="../js/breakout/game.js"></script>
-        <script src="../js/breakout/main.js"></script>
+        <script src="../js/breakout-hard/constants.js"></script>
+        <script src="../js/breakout-hard/ui.js"></script>
+        <script src="../js/breakout-hard/game.js"></script>
+        <script src="../js/breakout-hard/main.js"></script>
     </body>
 </html>
