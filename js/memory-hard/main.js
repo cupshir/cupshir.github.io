@@ -1,7 +1,7 @@
 let cards = [];
 let firstCardId, secondCardId, firstCardDataValue, secondCardDataValue;
 
-let numCards = 6;
+let numCards = 18;
 let addedCards = 0;
 let hasFlippedCard = false;
 let lockBoard = false;
@@ -20,9 +20,11 @@ let matchedSets = 0;
 })();
 
 $(document).ready(function() {
-    cards.forEach(card => {
-        let uiCard1 = buildCard(card.Type + '1', card.Type, card.ImageName, card.ImageText);
-        let uiCard2 = buildCard(card.Type + '2', card.Type, card.ImageName, card.ImageText);
+    cards.forEach((card, index) => {
+        let cardId1 = card.Type + (index + 1);
+        let cardId2 = card.Type + (index + 1) * 100;
+        let uiCard1 = buildCard(cardId1, card.Type, card.ImageName, card.ImageText);
+        let uiCard2 = buildCard(cardId2, card.Type, card.ImageName, card.ImageText);
 
         $('.cards').append(uiCard1);
         $('.cards').append(uiCard2);
@@ -39,28 +41,7 @@ $(document).ready(function() {
 
     $('.start-game').on('click', function() {
         $('.intro').hide();
-        $('.fake-game').show();
+        $('.game').show();
     });
-
-    $('.fake-game img').on('click', function() {
-        $('.fake-game img').hide();
-        $('.fake-game-content').show();
-
-        var timeLeft = 5;
-        var countdown = setInterval(function() {
-            if (timeLeft === 0) {
-                clearInterval(countdown);
-
-                $('.fake-game').hide();
-                $('.game').show();
-                return;
-            }
-
-            timeLeft -= 1;
-            $('#countDown').text(timeLeft);
-        }, 1000)        
-    });
-
-
 });
 
