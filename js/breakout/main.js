@@ -38,6 +38,7 @@ $(document).ready(function() {
         // setup game state
         resetGame();
 
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
         drawSartingBoard();
 
         setTimeout(function() {
@@ -65,8 +66,11 @@ $(document).ready(function() {
 function play() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    drawBricks(currentBricks, brickColumnCount, brickRowCount, brickWidth, brickHeight, brickPadding, brickPadding, brickOffsetLeft, brickOffsetTop);
-    drawBall(ballX, ballY);
+    if (gameState != 'OVER') {
+        drawBricks(currentBricks, brickColumnCount, brickRowCount, brickWidth, brickHeight, brickPadding, brickPadding, brickOffsetLeft, brickOffsetTop);
+        drawBall(ballX, ballY);    
+    }
+
     drawPaddle(paddleX, canvas.height, paddleWidth, PADDLE_HEIGHT);
     drawScore(currentScore);
     drawLives(currentLives, canvas.width);
@@ -94,6 +98,8 @@ function play() {
             }, 1500);
             return;
         case 'OVER':
+            cancelAnimationFrame(gameRequest);
+            gameOver();
             setTimeout(function() {
                 $('.game-board').hide();
                 $('.game-over').show();
@@ -119,7 +125,10 @@ function play() {
     }
 
     // check for game over
-    if (!currentLives) {
+    if (!currentLives && currentScore >= 1500) {
+        gameState = 'WON';
+    }
+    else if (!currentLives) {
         gameState = 'OVER';
     }
 
@@ -178,8 +187,6 @@ function levelCleared() {
 }
 
 function levelFailed() {
-    cancelAnimationFrame(gameRequest);
-
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     currentScore = currentScore - 50;
@@ -194,5 +201,15 @@ function levelFailed() {
     gameState = 'PLAY';
 
     $('.try-again').show();
+}
+
+function gameOver() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+    drawScore(currentScore);
+    drawLives(currentLives, canvas.width);
+    drawGameOver(canvas.width, canvas.height);
+
+    gameState = 'OVER';
 }
 

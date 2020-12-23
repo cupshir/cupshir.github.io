@@ -50,3 +50,23 @@ canvas {
     border-color: #FFFFFF;
     color: #FFFFFF
 }
+
+.restart-game {
+    background-color: #FFFFFF;
+    border-color: #FFFFFF;
+    color: mediumslateblue;
+}
+
+.restart-game:hover {
+    background-color: mediumslateblue;
+    border-color: #FFFFFF;
+    color: #FFFFFF;
+}
+
+.game-over img {
+    width: 150px;
+}
+
+.game-over p {
+    color: #FFFFFF;
+}
