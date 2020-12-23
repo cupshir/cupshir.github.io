@@ -4,7 +4,10 @@ body {
     justify-content: space-between;
     align-items: center;
     padding-top: 100px;
-    min-height: 500px;
+    min-height: 600px;
+    background-image: url("/img/christmas-living-room.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .content {
@@ -12,8 +15,34 @@ body {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    height: 350px;
+    background-color: mediumslateblue;
+    width: 500px;
+    text-align: center;
+    padding: 30px;
+    border-radius: 4px;
+    color: #FFFFFF;
+    margin-top: 225px;
+    box-shadow: 1px 3px rgba(0, 0, 0, 0.35);
 }
 
-.content img {
-    width: 200px;
+.content h1 {
+    font-size: 26px;
+    line-height: 150%;
+}
+
+.content p {
+    line-height: 125%;
+}
+
+.start-quest {
+    background-color: #FFFFFF;
+    border-color: #FFFFFF;
+    color: mediumslateblue;
+}
+
+.start-quest:hover {
+    background-color: mediumslateblue;
+    border-color: #FFFFFF;
+    color: #FFFFFF;
 }
