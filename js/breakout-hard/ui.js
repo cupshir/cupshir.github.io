@@ -33,6 +33,16 @@ function drawLevelFailed(canvasWidth, canvasHeight) {
     ctx.fillText(pointLossText, (canvasWidth / 2) - (pointLossTextWidth / 2), canvasHeight /2);
 }
 
+function drawGameOver(canvasWidth, canvasHeight) {
+    ctx.font = '24px Arial';
+    ctx.fillStyle = '#0095DD';
+
+    let gameOverText = 'GAME OVER',
+        gameOverTextWidth = ctx.measureText(gameOverText).width;
+
+    ctx.fillText(gameOverText, (canvasWidth / 2) - (gameOverTextWidth / 2), canvasHeight / 2);
+}
+
 function drawBall(x, y) {
     ctx.beginPath();
     ctx.arc(x, y, BALL_RADIUS, 0, Math.PI*2);
@@ -68,7 +78,6 @@ function drawBricks(bricks, columnCount, rowCount, width, height, widthPadding, 
 }
 
 function drawSartingBoard() {
-
     drawBricks(currentBricks, brickColumnCount, brickRowCount, brickWidth, brickHeight, brickPadding, brickPadding, brickOffsetLeft, brickOffsetTop);
     drawBall(ballX, ballY);
     drawPaddle(paddleX, canvas.height, paddleWidth, PADDLE_HEIGHT);

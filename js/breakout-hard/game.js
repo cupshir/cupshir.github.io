@@ -7,6 +7,7 @@ function resetLevel() {
 }
 
 function resetGame() {
+    gameState = STARTING_GAME_STATE;
     currentScore = 0;
     currentLives = STARTING_LIVES;
     currentLevel = STARTING_LEVEL;
