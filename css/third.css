@@ -44,3 +44,24 @@ body {
     padding: 15px 30px;
     cursor: pointer;
 }
+
+.try-again {
+    max-width: 170px;
+    margin: 50px auto 0 auto;
+}
+
+.winner p {
+    color: #FFFFFF;
+}
+
+.continue-quest {
+    background-color: #FFFFFF;
+    border-color: #FFFFFF;
+    color: purple;
+}
+
+.continue-quest:hover {
+    background-color: purple;
+    border-color: #FFFFFF;
+    color: #FFFFFF;
+}

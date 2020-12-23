@@ -48,6 +48,18 @@ $(document).ready(function() {
     
         animate();
     });
+
+    $('.try-again').on('click', function() {
+        $(this).hide();
+
+        resetGame();
+        time.start = performance.now();
+        if (requestId) {
+            cancelAnimationFrame(requestId);
+        }
+
+        animate();
+    });
 });
 
 addEventListener();
@@ -96,11 +108,27 @@ function play() {
 }
 
 function animate(now = 0) {
+    if (account.lines >= 20) {
+        gameWin();
+
+        setTimeout(function() {
+            $('.game').hide();
+            $('.winner').show();
+        }, 1500);
+
+        return;
+    }
+
     time.elapsed = now - time.start;
     if (time.elapsed > time.level) {
         time.start = now;
         if (!board.drop()) {
             gameOver();
+
+            setTimeout(function() {
+                $('.try-again').show();
+            }, 500);
+
             return;
         }
     }
@@ -118,6 +146,15 @@ function gameOver() {
     ctx.font = '1px Arial';
     ctx.fillStyle = 'red';
     ctx.fillText('GAME OVER', 1.8, 4);
+}
+
+function gameWin() {
+    cancelAnimationFrame(requestId);
+    ctx.fillStyle = 'purple';
+    ctx.fillRect(1, 3, 8, 1.2);
+    ctx.font = '1px Arial';
+    ctx.fillStyle = 'white';
+    ctx.fillText('You Win!', 3, 4);
 }
 
 function pause() {
