@@ -34,6 +34,7 @@ $(document).ready(function() {
         $('.game-over').hide();
         $('.intro').hide();
         $('.game-board').show();
+        $('.goal').show();
 
         // setup game state
         resetGame();
@@ -48,6 +49,7 @@ $(document).ready(function() {
 
     $('.next-level').on('click', function() {
         $(this).hide();
+        $('.goal').show();
 
         setTimeout(function() {
             gameRequest = requestAnimationFrame(play);
@@ -56,6 +58,7 @@ $(document).ready(function() {
 
     $('.try-again').on('click', function() {
         $(this).hide();
+        $('.goal').show();
 
         setTimeout(function() {
             gameRequest = requestAnimationFrame(play);
@@ -183,6 +186,7 @@ function levelCleared() {
     gameState = 'PLAY';
 
     // show next level button
+    $('.goal').hide();
     $('.next-level').show();
 }
 
@@ -200,6 +204,7 @@ function levelFailed() {
     failedLevel = false;
     gameState = 'PLAY';
 
+    $('.goal').hide();
     $('.try-again').show();
 }
 

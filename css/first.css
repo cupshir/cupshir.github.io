@@ -1,5 +1,7 @@
 body {
-    background: lightseagreen;
+    background-image: url("/img/treausre-tomb.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .intro {
@@ -16,18 +18,29 @@ body {
 }
 
 .game-board h2 {
-    padding-bottom: 50px;
-    color: purple;
+    padding: 20px;
+    margin-top: 20px;
+    color: #FFFFFF;
+    background-color: mediumslateblue;
+    border-radius: 6px;
+    text-align: center;
+    line-height: 150%;
+    font-size: 18px;
 }
 
 canvas {
     background: #eee;
     display: block;
+    border-radius: 2px;
 }
 
 .btn-container {
     height: 100px;
     padding-top: 20px;
+}
+
+.btn {
+    margin-top: 40px;
 }
 
 .next-level {
