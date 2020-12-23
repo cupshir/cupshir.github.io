@@ -72,13 +72,10 @@ class Board {
         });
 
         if (lines > 0) {
-            account.score += this.getLinesClearedPoints(lines);
             account.lines += lines;
 
-            if (account.lines >= LINES_PER_LEVEL) {
+            if (account.lines % LINES_PER_LEVEL == 0) {
                 account.level++;
-
-                account.lines -= LINES_PER_LEVEL;
 
                 time.level = LEVEL[account.level];
             }
@@ -146,20 +143,5 @@ class Board {
 
         p.shape.forEach(row => row.reverse());
         return p;
-    }
-
-    getLinesClearedPoints(lines) {
-        const lineClearPoints = 
-            lines === 1
-                ? POINTS.SINGLE
-                : lines === 2
-                    ? POINTS.DOUBLE
-                    : lines === 3
-                        ? POINTS.TRIPLE
-                        : lines === 4
-                            ? POINTS.TETRIS
-                            : 0;
-
-        return (account.level +1) * lineClearPoints;
     }
 }

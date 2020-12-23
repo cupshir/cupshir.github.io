@@ -3,28 +3,41 @@
     <head>
         <meta charset="UTF-8" />
         <title></title>
+        <script src="/js/jquery-3.5.1.min.js"></script>
         <link rel="stylesheet" href="/css/common.css">
         <link rel="stylesheet" href="/css/third.css">
 
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Press+Start+2P" />
     </head>
     <body>
+        <div class="content-card intro">
+            <div>
+                <h1>Quest 3</h1>
+                <h3>Test of Intelligence</h3>
+            </div>
+            <p>Quest 3 will test your ability to organize and utilize space. Clear 20 lines and another present will be yours.</p>
+            <p>Good Luck!</p>
+            <div class="btn start-game">Start Game</div>
+        </div>
 
-        <div class="grid">
-            <canvas id="board" class="game-board"></canvas>
-            <div class="right-column">
-                <div>
-                    <h1>Title</h1>
-                    <p>Score: <span id="score">0</span></p>
-                    <p>Lines: <span id="lines">0</span></p>
-                    <p>Level: <span id="level">0</span></p>
-                    <canvas id="next" class="next"></canvas>    
-                </div>
-                <div>
-                    <button onclick="play()" class="btn-play">Play</button>
-                    <a href="/index.html" class="btn">Back</a>    
+        <div class="game" style="display: none;">
+            <div class="grid">
+                <canvas id="board" class="game-board"></canvas>
+                <div class="right-column">
+                    <div>
+                        <h1>Tetris</h1>
+                        <p>Lines: <span id="lines">0</span></p>
+                        <p>Level: <span id="level">0</span></p>
+                        <canvas id="next" class="next"></canvas>    
+                    </div>
                 </div>
             </div>
+        </div>
+
+        <div class="content-card winner" style="display: none;">
+            <img src="/img/you-win.png" alt="Winner">
+            <p>I knew you could do it! Your present can be found in the white garage cabinets.</p>
+            <a href="/games/fourth.html" class="btn continue-quest">Continue Your Quest</a>
         </div>
 
         <script src="../js/tetris/constants.js"></script>

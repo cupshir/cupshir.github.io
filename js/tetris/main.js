@@ -4,7 +4,6 @@ const canvasNext = document.getElementById('next');
 const ctxNext = canvasNext.getContext('2d');
 
 let accountValues = {
-    score: 0,
     level: 0,
     lines: 0
 }
@@ -36,6 +35,21 @@ const moves = {
 
 let board = new Board(ctx, ctxNext);
 
+$(document).ready(function() {
+    $('.start-game').on('click', function() {
+        $('.intro').hide();
+        $('.game').show();
+
+        resetGame();
+        time.start = performance.now();
+        if (requestId) {
+            cancelAnimationFrame(requestId);
+        }
+    
+        animate();
+    });
+});
+
 addEventListener();
 initNext();
 
@@ -59,23 +73,18 @@ function addEventListener() {
             let p = moves[event.keyCode](board.piece);
             if (event.keyCode === KEY.SPACE) {
                 while (board.valid(p)) {
-                    account.score += POINTS.HARD_DROP;
                     board.piece.move(p);
                     p = moves[KEY.DOWN](board.piece);
                 }
             }
             else if (board.valid(p)) {
                 board.piece.move(p);
-                if (event.keyCode === KEY.DOWN) {
-                    account.score += POINTS.SOFT_DROP;
-                }
             }
         }
     });
 }
 
 function resetGame() {
-    account.score = 0;
     account.lines = 0;
     account.level = 0;
     board.reset();
@@ -83,13 +92,7 @@ function resetGame() {
 }
 
 function play() {
-    resetGame();
-    time.start = performance.now();
-    if (requestId) {
-        cancelAnimationFrame(requestId);
-    }
 
-    animate();
 }
 
 function animate(now = 0) {
