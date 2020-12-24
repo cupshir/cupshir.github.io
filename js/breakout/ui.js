@@ -84,6 +84,3 @@ function drawSartingBoard() {
     drawScore(currentScore);
     drawLives(currentLives, canvas.width);
 }
-
-
-
