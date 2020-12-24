@@ -50,7 +50,8 @@ $(document).ready(function() {
     });
 
     $('.try-again').on('click', function() {
-        $(this).hide();
+        $('.game-over').hide();
+        $('.game').show();
 
         resetGame();
         time.start = performance.now();
@@ -108,7 +109,7 @@ function play() {
 }
 
 function animate(now = 0) {
-    if (account.lines >= 20) {
+    if (account.lines >= 10) {
         gameWin();
 
         setTimeout(function() {
@@ -126,8 +127,9 @@ function animate(now = 0) {
             gameOver();
 
             setTimeout(function() {
-                $('.try-again').show();
-            }, 500);
+                $('.game').hide();
+                $('.game-over').show();
+            }, 1000);
 
             return;
         }

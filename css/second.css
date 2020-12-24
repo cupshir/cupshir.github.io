@@ -1,7 +1,9 @@
 body {
     height: 100vh;
     display: flex;
-    background: #8c3ad5;
+    background-image: url("/img/purple-presents.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .content-card h1, .content-card h3, .content-card p {
