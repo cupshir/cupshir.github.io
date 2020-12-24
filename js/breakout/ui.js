@@ -1,18 +1,18 @@
 function drawScore(score) {
     ctx.font = '16px Arial';
-    ctx.fillStyle = '#0095DD';
+    ctx.fillStyle = '#6633CC';
     ctx.fillText('Score: ' + score, 8, 20);
 }
 
 function drawLives(lives, canvasWidth) {
     ctx.font = '16px Arial';
-    ctx.fillStyle = '#0095DD';
+    ctx.fillStyle = '#6633CC';
     ctx.fillText('Lives: ' + lives, canvasWidth - 65, 20);
 }
 
 function drawLevelCleared(canvasWidth, canvasHeight) {
     ctx.font = '24px Arial';
-    ctx.fillStyle = '#0095DD';
+    ctx.fillStyle = '#6633CC';
 
     let levelClearedText = 'LEVEL CLEARED',
         levelClearedTextWidth = ctx.measureText(levelClearedText).width;
@@ -22,7 +22,7 @@ function drawLevelCleared(canvasWidth, canvasHeight) {
 
 function drawLevelFailed(canvasWidth, canvasHeight) {
     ctx.font = '24px Arial';
-    ctx.fillStyle = '#0095DD';
+    ctx.fillStyle = '#6633CC';
 
     let failedText = 'FAILED LEVEL',
         failedTextWidth = ctx.measureText(failedText).width,
@@ -35,7 +35,7 @@ function drawLevelFailed(canvasWidth, canvasHeight) {
 
 function drawGameOver(canvasWidth, canvasHeight) {
     ctx.font = '24px Arial';
-    ctx.fillStyle = '#0095DD';
+    ctx.fillStyle = '#6633CC';
 
     let gameOverText = 'GAME OVER',
         gameOverTextWidth = ctx.measureText(gameOverText).width;
@@ -46,7 +46,7 @@ function drawGameOver(canvasWidth, canvasHeight) {
 function drawBall(x, y) {
     ctx.beginPath();
     ctx.arc(x, y, BALL_RADIUS, 0, Math.PI*2);
-    ctx.fillStyle = '#0095DD';
+    ctx.fillStyle = '#6633CC';
     ctx.fill();
     ctx.closePath();
 }
@@ -54,7 +54,7 @@ function drawBall(x, y) {
 function drawPaddle(x, canvasHeight, paddleWidth, paddleHeight) {
     ctx.beginPath();
     ctx.rect(x, canvasHeight - paddleHeight, paddleWidth, paddleHeight);
-    ctx.fillStyle = '#0095DD';
+    ctx.fillStyle = '#6633CC';
     ctx.fill();
     ctx.closePath();
 }
@@ -69,7 +69,7 @@ function drawBricks(bricks, columnCount, rowCount, width, height, widthPadding, 
                 bricks[c][r].y = brickY;
                 ctx.beginPath();
                 ctx.rect(brickX, brickY, width, height);
-                ctx.fillStyle = '#0095DD';
+                ctx.fillStyle = '#6633CC';
                 ctx.fill();
                 ctx.closePath();    
             }
