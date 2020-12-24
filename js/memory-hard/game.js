@@ -1,7 +1,7 @@
 function buildCard(cardId, cardType, cardImageName, cardImageText) {
     let newCard = `<div id="${cardId}" class="memory-card" data-card-type="${cardType}">
         <img class="front-face" src="../img/memory/${cardImageName}" alt="${cardImageText}">
-        <img class="back-face" src="../img/memory/snowman.svg" alt="Memory Card">    
+        <img class="back-face" src="../img/memory/snowman-white.png" alt="Memory Card">    
     </div>`;
 
     return newCard;

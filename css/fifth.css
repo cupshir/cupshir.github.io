@@ -1,7 +1,9 @@
 body {
     height: 100vh;
     display: flex;
-    background: #8c3ad5;
+    background-image: url("/img/purple-ornaments.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .content-card h1, .content-card h3, .content-card p {
@@ -52,10 +54,11 @@ body {
     height: calc(25% - 10px);
     margin: 5px;
     position: relative;
-    box-shadow: 1px 1px 0 rgba(0, 0, 0, .3);
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.35);
     transform-style: preserve-3d;
     transform: scale(1);
     transition: transform .5s;
+    border-radius: 4px;
 }
 
 .memory-card:active {
@@ -72,9 +75,13 @@ body {
     height: 100%;
     padding: 20px;
     position: absolute;
-    border-radius: 5px;
+    border-radius: 4px;
     background: #FFFFFF;
     backface-visibility: hidden;
+}
+
+.back-face {
+    background: mediumslateblue;
 }
 
 .front-face {
